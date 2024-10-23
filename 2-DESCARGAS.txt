@@ -76,3 +76,18 @@ Una vez estamos ahí simplemente ponemos la ruta de nuestro proyecto y asi se ej
 //CREACION DE LOGIN
 composer require laravel/jestream
 php artisan jetstream:install livewire
+
+
+//EXTENSIONES PARA VSC (VISUAL STUDIO CODE)
+
+Laravel Blade formatter: Ordenar el formato de mi texto
+Laravel Blade Snippets: Recomienda opciones mientras voy escribiendo
+Laravel goto view:Para poder movilizarme entre diferentes vistas de mi aplicación 
+Laravel Snippets: Recomienda opciones para archivos PHP de laravel, por ejemplo para escribir rutas y demás.
+Intelephense: Nos va ayudar a la hora de contruir código php.
+Tailwind CSS IntelliSense: Me ayuda con el codigo de Tailwind    
+Alpine.js: Cuando trabajamos con lavarel en ocasiones solemos trabajar con la libreria de alpine que es de javaScrip 
+GitHub Copilot: Con base al codigo que yo vaya escribiendo me va ir recomendando y dando sugerencias del codigo,se basa en inteligencia artificial.
+
+
+
