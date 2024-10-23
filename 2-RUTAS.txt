@@ -41,9 +41,8 @@ Podemos usarlos para pasar el id del articulo que deseamos y evitar crear un mé
 
 
 
-//CONCIDERACIONES
+//CONSIDERACIONES
 
-Se debe tener mucho cuidado el orden en el que se declara la ruta, ya que si por ejemplo tenemos de primera una rita la cual es juan/{variable}, y abajo creamos otra que es juan/jose
-cuando laravel cargue las rutas de arriba a abajo, puede asumir que la palabra jose es el parámetro de la primera ruta, más no el complemento de la ruta de abajo
+Se debe tener mucho cuidado el orden en el que se declara la ruta, ya que si por ejemplo tenemos de primera una ruta la cual es juan/{variable}, y abajo creamos otra que es juan/jose cuando laravel cargue las rutas de arriba a abajo, puede asumir que la palabra jose es el parámetro de la primera ruta, más no el complemento de la ruta de abajo
 
-Para arreglarlo, simplemente cambiamos el orden de los endpoints
+Para arreglarlo, simplemente cambiamos el orden de los endpoints, es decir siempre los endpoints con parametros variables deben ir mas abajo, dado que, el sistema lo lee de arriba hacia abajo.
