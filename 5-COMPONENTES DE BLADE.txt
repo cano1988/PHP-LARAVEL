@@ -1,2 +1,62 @@
 // COMPONENTES DE BLADE.
+Estos se crean para reutilizarlos a lo largo de nuestro proyectos, lo definimos en una parte y despues si lo requiero hago uso de el, sin necesidad de volver a crearlo.
 
+// COMO CREAR UN COMPONENTE
+Vamoa al encarpetado de nuestro proyecto buscamos resources/views, en views creamos una carpeta con el nombre de components
+
+// COMO AGREGAR COMPONENTE A UNA VISTA
+
+En la vista se debe abrir una etiqueta y ponerle x-, copiar en nombre del componente y cerrr la etiqueta:
+
+Ejemplo 1: <x-alert></x-alert>
+Ejemplo 2: <x-alert/>, esta últma mas sencilla
+
+Sin embargo, si el contenido es variable se debe utilizar la etiqueta del ejemplo 1
+----------------------------------------------------------------
+
+// COMO CREAR CONTENIDO VARIABLE DEL COMPONENTE QUE ESTA DENTRO DE LA VISTA
+
+Lo primero es ir a la vista que puede variar, y le definimos un slot, así: {{$slot}}
+
+<div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+    <span class="font-medium">Info alert!</span> {{$alert}}
+</div>
+
+
+luego dentro la etiqueta de nuestra vista le definimos lo que se requiere, así:
+
+    <x-alert>
+        Esto es un mensaje de alerta
+    </x-alert>
+
+// OPERADORES TERNARIOS
+Podemos utilizar operadore ternarios de la siguiente manera:
+<span class="font-medium">{{ $title ?? 'Info Alert!' }}</span> {{$slot}}, si la variable  $title no esta definida entonces arroja el 'Info Alert!'.
+
+
+
+// EXISTEN DOS CLASES DE COMPONENTES
+
+Componentes anónimos: se crea en la vista de la carpeta resources directamente
+Componentes de clase: se crea a partir del comando:
+php artisan make:component 'nombre del componente'
+
+
+----------------------------------------------------------------
+
+En Laravel, {{$slot}} es una variable especial utilizada dentro de componentes de Blade. Es parte del sistema de componentes y slots que Blade ofrece para organizar y reutilizar el HTML en diferentes partes de tu aplicación de manera más eficiente.
+
+¿Qué es $slot?
+$slot: Es una variable especial que representa el contenido dinámico que pasas a un componente Blade. Cuando defines un componente, puedes hacer que el contenido que rodea la instancia del componente en la vista principal se pase automáticamente al componente usando la variable $slot.
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+// TAILWIND: Es una libreria css que nos ayuda a realizar diseños de una manera muy rápida.
+
+// COMO INCLUIR TAILWIND EN NUESTRO PROYECTOR
+
+1- vamos a la pagina de Tailwind: https://tailwindcss.com/
+2- damos clic en get started y vamos a la docuemntación y en instalacion le damos play CDN para instalarlo con el CDN.
+3- Copiamos el script en una vista, debajo del title el script: <script src="https://cdn.tailwindcss.com"></script>
