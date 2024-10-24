@@ -1,3 +1,22 @@
 // DEBEMOS LLEVAR UN ORDEN DE NUESTROS ENDPOINT Y TRABAJAR DESDE NUESTROS  CONTROLADORES CON TODA LA LÓGICA QUE NECESITEMOS.
 
 //COMO CREAR CONTROLADORES
+
+php nos ofrece el comando artisan para crear controladores 
+
+php artisan make:controller "Nombre del controlador"
+Luego de aplicar el comando de arriba se nos va crear un controladore en la carpeta de api/Http/Controllers
+
+//COMO ASIGNAR A UN CONTROLADOR LA RUTA
+Primero debemos un use con el namespace y seguido del nombre de la clase del controlador, de la sigueinte manera:
+
+use App\Http\Controllers\HomeController
+
+::class:  facilita obtener el nombre completo de la clase con su espacio de nombres.
+
+use: La línea use App\Http\Controllers\HomeController; en PHP y Laravel se utiliza para importar una clase específica (en este caso, HomeController) de su espacio de nombres (namespace) a tu archivo actual. Esto te permite usar esa clase directamente sin tener que escribir su nombre completo (nombre de la clase más su espacio de nombres) cada vez que la necesites.
+
+//Metodo _invoke
+
+Cuando tenga un controlador con un solo metodo, lo puedo llamar _invoke y lo que hace es que la ruta del controlador no sea necesario ponerle el nombre.
+
