@@ -82,7 +82,7 @@ php artisan jetstream:install livewire
 
 Laravel Blade formatter: Ordenar el formato de mi texto
 Laravel Blade Snippets: Recomienda opciones mientras voy escribiendo
-Laravel goto view:Para poder movilizarme entre diferentes vistas de mi aplicación 
+Laravel goto view:Para poder movilizarme entre diferentes vistas de mi aplicación, me pone un raya pordebajo del nombre de mi vista y me puedo dirigir a dicha vista dandole ctrl+clic.
 Laravel Snippets: Recomienda opciones para archivos PHP de laravel, por ejemplo para escribir rutas y demás.
 Intelephense: Nos va ayudar a la hora de contruir código php.
 Tailwind CSS IntelliSense: Me ayuda con el codigo de Tailwind    

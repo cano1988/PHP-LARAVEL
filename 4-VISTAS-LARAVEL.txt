@@ -5,3 +5,32 @@ Vamos a empezar a usar, en vez de enviar solo cadenas de texto (String).
 // DONDE SE GUARDAN LAS VISTAS
 
 Estas se guardan en la carpeta resource -> views de nuestro proyecto
+
+// ADICION DE VISTAS 
+
+Estas tienen algo particular y es que se guardan con una extensión adicional
+Ejemplo: home.blade.php, donde Homepage es el nombre de nuestra vista y la extensión es blade.php
+
+La extensión de blade también se crea porque nos ayuda a incluir codigo php dentro de las plantillas.
+
+OJO -> El nombre de la extensión debe ser en minúscula
+
+// COMO HACER PARA QUE NOS RETORNE LAS VISTAS CREADAS DESDE LOS CONTROLADORES
+
+Luego de tener la vista creada, vamos al controlador y le damos:
+return view('nombre de la vista')
+Recordemos que view hace parte de los helpers de laravel que son funciones que nos ayudan internamente en laravel.
+
+// CUANDO TENGO VARIOS METODOS ASOCIADOS  A UNA RUTA CON EL MISMO NOMBRE, SE CREA UNA CARPETA GENERAL Y ALLÍ SE INCLUYEN TODAS LA VISTAS.
+
+// PASARLE VARIABLES A UNA LISTA
+
+Debemos crear un array que nos recorra el id, de la siguiente manera:
+
+Ejemplo: array('id' => $id),  en este ejemplo el id es el parametro variable
+
+// El ejemplo de arriba lo podemos reemplazar con una funcion compact, esta crea un array que nos recorra la variable.
+
+public function  show($id){
+        return view('posts.show', compact('id'));
+    }
