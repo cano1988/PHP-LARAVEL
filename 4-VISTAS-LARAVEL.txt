@@ -1,0 +1,7 @@
+// VISTAS EN LARAVEL
+
+Vamos a empezar a usar, en vez de enviar solo cadenas de texto (String).
+
+// DONDE SE GUARDAN LAS VISTAS
+
+Estas se guardan en la carpeta resource -> views de nuestro proyecto
