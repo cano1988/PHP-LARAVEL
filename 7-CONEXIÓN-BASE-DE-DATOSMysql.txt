@@ -1,2 +1,28 @@
 // CONEXIÓN BASE DE DATOS MYSQL
 
+A partir de laravel 11 se configuró para que a partir del proyecto por defecto viene con Sqlite u ofrece otras opciones. 
+
+// DONDE SE UBICA
+
+Se ubica en una carpeta database de nuestro proyecto. ****************
+
+// COMO CONFIGURAR NUESTRA BASE DE DATOS EN EL PROYECTO
+
+* Vamos al archivo .env que esta en la raiz de nuestro proyecto y en una variable que se llama DB_CONNECTION debemos especificar a cual base de datos deseamos conectarnos, sin embargo, cuando creas el proyecto en el paso a paso te dice la opcion de escoger la base de datos.
+
+// CREDENCIALES QUE DEBEN ESTAR HABILITADAS EN NUESTRO ARCVIVO .env
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=blog
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+// COMANDO A EJECUTAR SI NO SE ESCOGIÓ BASE DE DATOS EN LA CREACION DEL PROYECTO
+
+Este comando se utiliza para migrar las tabla requeridas a nuestra base de datos:
+
+php artisn migrate.
+
