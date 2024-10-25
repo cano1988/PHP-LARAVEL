@@ -1,0 +1,34 @@
+// CREAR PLANTILLAS A TRAVÉS DE COMPONENTES
+
+Creamos un componenete con la estructura que necesitemos y se lo trasladamos po medio de un x- a nuestra vista.
+
+// CREAR PLANTILLAS LAYOUTS
+
+Vamos a crear plantillas a traves de layouts, nos vamos para la carpeta de resources, views y creamos una carpeta que se llama layouts.
+
+cuando trabajamos con este tipo de plantillas debemos de llamar @yield
+
+Concepto básico de @yield
+@yield('name'): Es un marcador de posición para una sección de contenido en una plantilla de Blade.
+Este marcador indica dónde debe aparecer el contenido que será "inyectado" desde otras vistas que extienden la plantilla.
+
+para extenderla usamos @extends(aqui va la ruta de nuestra layout) 
+
+// COMO PONER VARIABLE NUESTRA TITLE DE LOS HTML
+
+    <title>@yield('title')</title>
+
+    luego se lo pasamos a la vista
+    
+@section('title')
+  Laravel 12
+@endsection
+
+o también es posible enviarlo con un segundo parametro, sin necesidad de usar @endsection
+@section('title', 'Laravel 12')
+  
+// Directiva @stack, funciona con @push cuando se va implementar en la vista
+
+@stack suele ponerse debajo de los scrip de html, en el head
+
+Funciona de una manera similar a el @yield con una diferencia que el @yield lo utilizamos solo para sustituir un elemento, es decir, el contenido variable es único y el @stack lo podemos usar cuando este lo vamos a utilizar en varios elementos, haciendo una analogía es muy similar al uso de id y clases en css.
