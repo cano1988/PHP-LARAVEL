@@ -1,0 +1,113 @@
+// LINK DOCUEMNTACION EN LARAVEL DE MIGRATIONS 
+ https://laravel.com/docs/11.x/migrations#main-content
+
+// MIGRACIONES
+
+Se crearon en laravel para que funcionen como un control de versiones de la base de datos.
+
+Comando para migrar
+
+php artisan migrate
+
+// DONDE SE ENCUENTRAN
+
+Carpeta database/migrations de nuestro proyecto: En esa carpeta podemos observas unas migraciones que se han creado automáticamente cuando creamos el proyecto y estas han sido las encargadas de crearnos las tablas que vimos en el video antenor en la conexion de la base de datos.
+
+// QUE ES SHEMA::
+
+En Laravel, Schema:: es una clase de la base de datos que proporciona una interfaz para manipular la estructura de las tablas en la base de datos. Esta clase es especialmente útil dentro de las migraciones de Laravel, donde puedes crear, modificar o eliminar tablas.
+
+
+Métodos Comunes en Schema::
+create($table, Closure $callback): Crea una tabla nueva.
+table($table, Closure $callback): Modifica una tabla existente.
+drop($table): Elimina una tabla específica.
+dropIfExists($table): Elimina una tabla si existe.
+hasTable($table): Verifica si una tabla existe en la base de datos.
+hasColumn($table, $column): Verifica si una columna existe en una tabla específica.
+
+----------OJO---------------
+
+En el contexto de la función create($table, Closure $callback), la palabra Closure en PHP representa una función anónima o función lambda. Es un tipo especial de objeto que permite definir una función en línea y pasarla como parámetro.
+
+Explicación de Closure en Laravel
+En Laravel, Closure $callback en Schema::create indica que la función espera una función anónima (closure) como segundo argumento. Esta función anónima define las columnas y la estructura de la tabla que se está creando.
+
+Ejemplo
+php
+Copiar código
+Schema::create('users', function (Blueprint $table) {
+    $table->id();
+    $table->string('name');
+    $table->string('email')->unique();
+    $table->timestamps();
+});
+En este caso:
+
+function (Blueprint $table) { ... } es un Closure o función anónima.
+
+La clase Blueprint facilita la construcción de tablas proporcionando métodos que definen cada columna y su tipo, además de restricciones como unique o nullable.
+
+Blueprint simplifica la creación de migraciones en Laravel, permitiéndote definir la estructura y características de las tablas en una sintaxis legible y concisa.
+
+----------------------------------------------------------------
+
+// METODO UP 
+
+Nos aparece todos los metodos que hemos creado
+
+
+// METODO DOWN
+
+Nos aparece todos los metodos que hemos eliminado, esta opción es buena porque funciona como un ctrl+z, si queremos revertir lo que hemos eliminado, esta opción se aplica.
+
+
+// COMO CREAR UNA MIGRACIÓN
+
+php artisan make:migrations/migration "Nombre de la migracion"
+
+PARA CREAR UNA MIGRACION Y QUE NOS CREE PARTE DE LA ESTRUCTURA
+
+php artisan make:migrations/migration "create_Nombre de la migracion_table"
+
+// REVERTIR MIGRACION DEL ÚLTIMO LOTE
+
+php artisan migrate:rollback  
+
+Este último comando se ejecuta en caso de que se nos olvido poner una columna o algo mas, tambien es posible usar el comando de modificar.
+
+// DIFENCIAS DE COMANDOS DE MIGRACION
+
+En Laravel, los comandos refresh, fresh, y rollback se usan para manejar las migraciones (cambios en la estructura de la base de datos), y aunque todos "reinician" la base de datos de alguna forma, funcionan de manera distinta.
+
+Aquí tienes la diferencia explicada de la manera más sencilla posible:
+----------------------------------------------------------------
+1. php artisan migrate:refresh
+
+Qué hace: Este comando elimina todas las tablas de la base de datos y luego vuelve a ejecutar todas las migraciones desde el inicio.
+Cuándo usarlo: Es útil cuando quieres un "reseteo completo" para reconstruir la base de datos según las migraciones actuales, especialmente en desarrollo.
+Ejemplo práctico: Tienes muchas migraciones y necesitas asegurarte de que todo esté limpio y actualizado. refresh borra todo y reconstruye desde cero.
+
+php artisan migrate:refresh
+
+----------------------------------------------------------------
+2. php artisan migrate:fresh
+Qué hace: Este comando borra todas las tablas sin deshacer las migraciones y luego vuelve a ejecutar solo las migraciones actuales.
+Cuándo usarlo: Úsalo cuando no necesitas conservar los datos, quieres empezar desde cero y solo necesitas el esquema actual.
+Ejemplo práctico: Acabas de hacer cambios importantes en tus migraciones y quieres una base limpia sin datos viejos ni restos de migraciones anteriores.
+
+php artisan migrate:fresh
+
+----------------------------------------------------------------
+3. php artisan migrate:rollback
+Qué hace: Este comando deshace las últimas migraciones que ejecutaste. Es como "dar un paso atrás" en tus migraciones sin borrar todo.
+Cuándo usarlo: Úsalo si acabas de ejecutar una migración y necesitas revertirla porque algo no funcionó como esperabas.
+Ejemplo práctico: Hiciste una migración para agregar una nueva columna, pero luego te diste cuenta de que cometiste un error. rollback quita esa última migración.
+
+php artisan migrate:rollback
+
+----------------------------------------------------------------
+Resumen rápido:
+refresh: Borra y recrea todo desde cero (con todas las migraciones).
+fresh: Borra todas las tablas y aplica solo las migraciones actuales.
+rollback: Deshace las últimas migraciones ejecutadas (da un paso atrás).
